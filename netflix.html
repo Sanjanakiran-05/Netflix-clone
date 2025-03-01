@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .sec1 {
+            width: 100vw;
+            min-height: 100vh;
+            background-image: url(cover.jpg);
+            background-size: cover;
+            position: relative;
+        }
+        .sec1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            min-width: 100%;
+            height: 55px;
+            border-top: 5px solid rgb(255, 0, 0);
+            border-radius: 50% 50% 0 0;
+            box-shadow: inset 0 15px 30px rgb(3, 3, 90);
+            background-color: black;
+        }
+
+        .one {
+            color: white;
+            font-size: 45px;
+            font-weight: 700;
+            text-shadow: 5px 5px 40px black;
+        }
+
+        .two {
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+            text-shadow: 5px 5px 40px black;
+        }
+
+        .three {
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            text-shadow: 5px 5px 40px black;
+        }
+
+        .form-control {
+            width: 400px;
+            background-color: transparent;
+        }
+
+        .logo {
+            position: absolute;
+            top: 15px;
+            left: 70px;
+        }
+        .tr {
+            position: absolute;
+            top: 40px;
+            right: 70px;
+        }
+        .signin {
+            font-size: 15px;
+            width: 85px;
+            height: 30px;
+            margin-top: 2px;
+            background-color: red;
+        }
+        .sgrp{
+            /* width: 650px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
+        .get{
+            width: 150px;
+            height: 55px;
+            background-color: red;
+            margin-bottom: 15px;
+        }
+        .dd {
+            font-size: 15px;
+            width: 150px;
+            height: 33px;
+            background-color: rgba(0, 0, 0, 0.423);
+        }
+        .dd1 {
+            font-size: 15px;
+        }
+
+        .container2 {
+            background-color: black;
+            width: 100vw;
+            height: auto;
+            padding-top: 55px;
+        }
+
+        .trend {
+            margin-left: 85px;
+            /* margin-bottom: 25px; */
+            font-size: 25px;
+            font-weight: 400;
+        }
+
+        .film {
+            padding-top: 22px;
+            padding-bottom: 60px;
+            padding-left: 40px;
+            margin-left: 80px;
+            gap: 43px;
+            overflow-x: scroll;
+        }
+
+        .film::-webkit-scrollbar {
+            display: none;
+        }
+
+        .movie {
+            position: relative;            
+            transition: 0.3s all ease;
+
+        }
+
+        .m1::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '1';
+        }
+        .m2::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '2';
+        }
+        .m3::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '3';
+        }
+        .m4::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '4';
+        }
+        .m5::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '5';
+        }
+        .m6::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '6';
+        }
+        .m7::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '7';
+        }
+        .m8::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '8';
+        }
+        .m9::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '9';
+        }
+        .m10 {
+            margin-right: 110px;
+        }
+        .m10::after {
+            position: absolute;
+            left: -25px;
+            bottom: -5px;
+            font-size: 90px;
+            font-weight: 700;
+            -webkit-text-stroke: 2px white;
+            color: rgb(0, 0, 0);
+            content: '10';
+        }
+        .mov {
+            border-radius: 15px;
+        }
+
+        .container3 {
+            background-color: black;
+            width: 100vw;
+        }
+
+        .join {
+            color: white;
+            font-size: 25px;
+            font-weight: 400;
+            margin-left: 85px;
+            margin-bottom: 13px;
+        }
+        .box1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .b1 {
+            background: #2b5876;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #1f2a43, #2c071f);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #1f2a43, #2c071f);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            width: 45%;
+            border-radius: 15px;
+            margin: 8px;
+            padding: 48px;
+            position: relative;
+        }
+        .b2 {
+            background: #2b5876;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #1f2a43, #2c071f);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #1f2a43, #2c071f);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            width: 45%;
+            border-radius: 15px;
+            margin: 8px;
+            padding: 48px;
+            position: relative;
+        }
+        .b3 {
+            background: #2b5876;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #1f2a43, #2c071f);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #1f2a43, #2c071f);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            width: 45%;
+            border-radius: 15px;
+            margin: 8px;
+            padding: 48px;
+            position: relative;
+        }
+        .b4 {
+            background: #2b5876;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #1f2a43, #2c071f);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #1f2a43, #2c071f);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            width: 45%;
+            border-radius: 15px;
+            margin: 8px;
+            padding: 48px;
+            position: relative;
+        }
+        .ob {
+            font-size: 25px;
+            font-weight: 400;
+            padding-bottom: 5px;
+        }
+        .tb {
+            font-size: 17px;
+            font-weight: 400;
+        }
+        .p1, .p3, .p4{
+            position:absolute;
+            bottom:10px;
+            right:15px;
+            width: 55px;
+        }
+        .p2{
+            width: 60px;
+            position:absolute;
+            bottom:10px;
+            right:15px;
+        }
+
+        .container4 {
+            background-color: black;
+            width: 100vw;
+            height: 900px;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: -100px;
+        }
+        .faq{
+            margin-bottom: 25px;
+            margin-left: -555px;
+            font-size: 25px;
+            font-weight: 400;
+        }
+        .q1{
+            background-color: rgb(57, 57, 57);
+            width: 90%;
+            height: auto;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .q1 i{
+            font-size: 33px;
+        }
+        
+        .container5 {
+            background-color: black;
+            width: 100vw;
+            padding: 20px;
+            margin-top: -130px;
+        }
+
+        .container6 {
+            background-color: black;
+            width: 100vw;
+            /* height: 620px; */
+            padding: 20px;
+            color: rgb(186, 186, 186);
+        }
+
+        .call {
+            font-size: 17px;
+            margin-top: 40px;
+            margin-left: 110px;
+            font-weight: 500;
+        }
+
+        .word {
+            font-size: 17px;
+            margin-top: 30px;
+            margin-left: 90px;
+            font-weight: 400;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 15px;
+        }
+
+        .dn {
+            margin-top: 45px;
+            margin-left: 100px;
+        }
+        .india{
+            color: rgb(186, 186, 186);
+            margin-top: 50px;
+            margin-left: 80px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .q1:hover{
+            background-color: rgb(106, 106, 106);
+            cursor: pointer;
+        }
+        .movie:hover{
+            scale:1.2;
+        }
+
+        @media(max-width: 765px){
+            .sgrp{
+                flex-direction: column;
+            }  
+            .box1{
+                flex-direction: column;
+            }   
+            .word{
+                height: 270px;
+            }
+        }
+        @media(max-width: 1105px){
+            .faq{
+                margin-left: 50px;
+            }
+        }
+        @media(max-width: 650px){
+            .one{
+                font-size: 30px;
+            }
+            .two{
+                font-size: 20px;
+            }
+            .three{
+                font-size: 12px;
+            }
+            .form-control{
+                width: 210px;
+            }
+            .get{
+                width: 100px;
+                height: 35px;
+                font-size: 12px;
+            }
+            .word{
+                height: 300px;
+            }
+        }
+        @media(max-width: 590px){
+            .container6{
+                min-height: 160vh;
+            }
+            .word{
+                height: 500px;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- section1 -->
+    <div class="container-fluid sec1 d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <h1 class="one">Unlimited Movies,</h1>
+            <h1 class="one">TV shows and More</h1>
+            <h3 class="two">Watch anywhere. Cancel anytime.</h3>
+            <p class="three">Ready to watch? Enter your email to create or restart your membership.</p>
+            <div class="sgrp d-lg-flex d-md-flex d-sm-flex">
+                <div class="form-floating mb-3 text-light">
+                    <input type="email" class="form-control" id="floatingInput"
+                        placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <button class="get btn btn-danger">Get Started <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <img src="logo.png" alt="" class="logo" width="200px">
+        <div class="tr d-flex gap-4 d-none d-lg-flex d-md-flex d-sm-none">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle dd" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-language"></i> English
+                </button>
+                <ul class="dropdown-menu dd1">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="#">తెలుగు</a></li>
+                    <li><a class="dropdown-item" href="#">हिन्दी</a></li>
+                </ul>
+            </div>
+            <button class="signin btn btn-danger d-flex justify-content-center align-items-center">Sign in</button>
+        </div>
+    </div>
+    <!-- section2 -->
+    <div class="container2">    
+        <h3 class="trend text-light">Trending Now</h3>
+        <div class="film d-flex">
+            <div class="movie m1"><img src="1.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m2"><img src="2.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m3"><img src="3.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m4"><img src="4.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m5"><img src="5.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m6"><img src="6.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m7"><img src="7.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m8"><img src="8.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m9"><img src="9.webp" alt="" width="150px" class="mov"></div>
+            <div class="movie m10"><img src="10.webp" alt="" width="150px" class="mov"></div>
+        </div>
+    </div>
+    <!-- section3 -->
+    <div class="container3">
+        <h4 class="join">More reasons to join</h4>
+        <div class="box1 d-flex justify-content-center align-items-center">
+            <div class="b1 text-light">
+                <h4 class="ob">Enjoy on your TV</h4>
+                <h5 class="tb">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.
+                </h5>
+                <img src="b1.png" alt="" class="p1">
+            </div>
+            <div class="b2 text-light">
+                <h4 class="ob">Download shows to watch offline</h4>
+                <h5 class="tb">Save your favourites easily and always have something to watch.</h5>
+                <img src="b2.png" alt="" class="p2">
+            </div>
+            <div class="b3 text-light">
+                <h4 class="ob">Watch everywhere</h4>
+                <h5 class="tb">Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</h5>
+                <img src="b3.png" alt="" class="p3">
+            </div>
+            <div class="b4 text-light">
+                <h4 class="ob">Create profiles for kids</h4>
+                <h5 class="tb">Send kids on adventures with their favourite characters in a space made just for them</h5>
+                <img src="b4.png" alt="" class="p4">
+            </div>
+        </div>
+            
+    </div>
+    <!-- section4 -->
+     <div class="container4 d-flex justify-content-center align-items-center">
+        <div><h4 class="faq">Frequently Asked Questions</h4></div>
+        <div class="q1">
+            <h4>What is Netflix?</h4>
+            <i class="fa-regular fa-plus"></i>
+        </div>
+        <div class="q1">
+            <h4>How much does Netflix cost?</h4>
+            <i class="fa-regular fa-plus"></i>
+        </div>
+        <div class="q1">
+            <h4>Where can I watch?</h4>
+            <i class="fa-regular fa-plus"></i>
+        </div>
+        <div class="q1">
+            <h4>How do I cancel?</h4>
+            <i class="fa-regular fa-plus"></i>
+        </div>
+        <div class="q1">
+            <h4>What can I watch on Netflix?</h4>
+            <i class="fa-regular fa-plus"></i>
+        </div>
+        <div class="q1">
+            <h4>Is Netflix good for kids?</h4>
+            <i class="fa-regular fa-plus"></i>
+        </div>
+     </div>
+     <!-- section5 -->
+    <div class="container5 d-flex justify-content-center align-items-center flex-column">
+        <p class="three">Ready to watch? Enter your email to create or restart your membership.</p>
+            <div class="sgrp">
+                <div class="form-floating mb-3 text-light">
+                    <input type="email" class="form-control" id="floatingInput"
+                        placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <button class="get btn btn-danger">Get Started <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+    </div>
+    <!-- section6 -->
+    <div class="container6">
+        <div class="call">
+            <p>Questions? Call <u>000-800-919-1743</u></p>
+        </div>
+        <div class="word">
+            <u>FAQ</u>
+            <u>Help Centre</u>
+            <u>Account</u>
+            <u>Media Centre</u>
+            <u>Investor Relations</u>
+            <u>Jobs</u>
+            <u>Ways to Watch</u>
+            <u>Terms of Use</u>
+            <u>Privacy</u>
+            <u>Cookie Preferences</u>
+            <u>Corporate Information</u>
+            <u>Contact Us</u>
+            <u>Speed Test</u>
+            <u>Legal Notices</u>
+            <u>Only on Netflix</u>
+        </div>
+        <div class="dropdown dn">
+            <button class="btn btn-secondary dropdown-toggle dd" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false"><i class="fa-solid fa-language"></i> English
+            </button>
+            <ul class="dropdown-menu dd1">
+                <li><a class="dropdown-item" href="#">English</a></li>
+                <li><a class="dropdown-item" href="#">తెలుగు</a></li>
+                <li><a class="dropdown-item" href="#">हिन्दी</a></li>
+            </ul>
+        </div>
+        <p class="india">Netflix India</p>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
