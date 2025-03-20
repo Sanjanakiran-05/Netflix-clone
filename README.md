@@ -9,12 +9,12 @@ This is a simple Netflix Clone built using HTML, CSS, and Bootstrap.
 - **Bootstrap** – Grid system, navbar, buttons, and responsiveness
 
 ## Features
-✔️ Responsive design for different screen sizes
-✔️ Enhanced styling with CSS
-✔️ Bootstrap components for a modern look
+1. Responsive design for different screen sizes
+2. Enhanced styling with CSS
+3. Bootstrap components for a modern look
 
 ## How to Run
-1. Clone the repository: `git clone https://github.com/Sanjanakiran-05/Netflix-clone`
+1. Clone the repository: `https://github.com/Sanjanakiran-05/Netflix-clone`
 2. Open `index.html` in a browser.
 
 ## Live Demo
